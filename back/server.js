@@ -2,10 +2,15 @@ import express from 'express'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 
-// Routes
+/* Config */
+import { connectDB } from './config/db.js'
+
+/* Routes */
 import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
+
+connectDB()
 
 const app = express()
 

@@ -1,4 +1,3 @@
-
 // @desc   GetUserProfile
 // @route   GET /api/users/profile
 // @access  Private
