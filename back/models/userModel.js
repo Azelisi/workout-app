@@ -11,7 +11,7 @@ email: {
     type: String,
     required: true,
 },
-images: {
+image: {
   before: String,
   after: String
 },
