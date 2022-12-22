@@ -1,5 +1,6 @@
 import User from "../../models/userModel.js"
 import asyncHandler from "express-async-handler"
+import { generateToken } from "../../helpers/generateToken.js"
 
 // @desc   Register user
 // @route   POST /api/users
@@ -14,13 +15,14 @@ const isHaveUser = await User.findOne({email})
         throw new Error('Пользователь уже зарегистрирован')
     }
 
+
 const user = await User.create({
     email, 
     password,
 })
 
-//Create token
+const token = generateToken(user._id)
 
-res.json(user)
+res.json({user, token})
 
 })
