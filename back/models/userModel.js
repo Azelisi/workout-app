@@ -2,29 +2,29 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 const userSchema = mongoose.Schema(
     {
-name: String,
-password: {
-    type: String,
-    required: true,
-},
-email: {
-    type: String,
-    required: true,
-},
-image: {
-  before: String,
-  after: String
-},
-}, {
-minimize: false,
-timestamps: true
-    })
+        name: String,
+        password: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
+        image: {
+            before: String,
+            after: String
+        },
+    }, {
+    minimize: false,
+    timestamps: true
+})
 
 userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)
 }
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         next();
     }

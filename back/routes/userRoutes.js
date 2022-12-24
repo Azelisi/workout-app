@@ -1,6 +1,6 @@
 import express, { Router } from 'express'
 import { getUserProfile } from '../controllers/user/profileController.js'
-import { registerUser} from '../controllers/user/reqController.js'
+import { registerUser } from '../controllers/user/reqController.js'
 import { authUser } from '../controllers/user/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
